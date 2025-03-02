@@ -48,11 +48,12 @@ public class Contact {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return nom + " " + prenom + " " + numTelephone + " " + email;
+    }
+
     public void afficherInformations() {
-        System.out.println("Les informations du contact sont: ");
-        System.out.println("Nom : " + this.getNom());
-        System.out.println("Prénom : " + this.getPrenom());
-        System.out.println("Numéro de Téléphone : " + this.getNumTelephone());
-        System.out.println("Adresse Email : " + this.getMail());
+        System.out.println(this);
     }
 }

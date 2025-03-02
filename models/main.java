@@ -3,21 +3,25 @@ public static void main(String[] args) {
     Contact contactMarc = new Contact("AHOUANDJINOU", "Marc-Aurel", "0158466965", "ahouandjinou@gmail.com");
     Contact contactIovann = new Contact("ATCHO", "Iovann", "0191323202", "atcho@gmail.com");
     Contact contactElise = new Contact("AVOKAN", "Elisé", "0158467049", "avokan@gmail.com");
+    Contact contactCynelle = new Contact("HOUKONNOU", "Cynelle", "01600109632", "houkonnou@gmail.com");
+
 
     CarnetAdresse carnetAdr = new CarnetAdresse();
 
-    carnetAdr.ajouterContact(contactMarc);
-    carnetAdr.ajouterContact(contactIovann);
-    carnetAdr.ajouterContact(contactElise);
+    carnetAdr.addContact(contactMarc);
+    carnetAdr.addContact(contactIovann);
+    carnetAdr.addContact(contactElise);
+    carnetAdr.addContact(contactCynelle);
+
 
     System.out.println("La liste des contact est: ");
-    carnetAdr.getContacts();
+    carnetAdr.displayContacts();
 
-    carnetAdr.supprimerContact("AHOUANDJINOU");
+    carnetAdr.removeContact("AHOUANDJINOU");
     System.out.println("La nouvelle liste de contact est la suivante: ");
-    carnetAdr.getContacts();
+    carnetAdr.displayContacts();
 
-    carnetAdr.chercherContact("Avokan");
+    carnetAdr.searchContact("Avokan");
 
 }
 

@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public class CarnetAdresse {
@@ -9,33 +8,37 @@ public class CarnetAdresse {
         this.contacts = new ArrayList<>();
     }
 
-    public void getContacts() {
+    public void displayContacts() {
         for (Contact element : contacts) {
-            System.out.print(element.getNom() + " " + element.getPrenom() + " " + element.getNumTelephone() + " "
-                    + element.getMail() + "\n");
+            System.out.println(element);
         }
     }
 
-    public void ajouterContact(Contact contact) {
-        contacts.add(contact);
-
+    public void addContact(Contact contact) {
         if (contacts.add(contact)) {
             System.out.println("Contact ajouté avec succès");
+        } else {
+            System.out.println("Erreur lors de l'ajout du contact");
         }
     }
 
-    public void supprimerContact(String nom) {
-        contacts.removeIf(contact -> contact.getNom().equalsIgnoreCase(nom));
+    public void removeContact(String nom) {
+        boolean removed = contacts.removeIf(contact -> contact.getNom().equalsIgnoreCase(nom));
+        if (removed) {
+            System.out.println("Contact supprimé avec succès");
+        } else {
+            System.out.println("Contact non trouvé");
+        }
     }
 
-    public void chercherContact(String nom) {
-        for (int i = 0; i < contacts.size(); i++) {
-            if (contacts.get(i).getNom().equalsIgnoreCase(nom)) {
-                // return contacts.get(i).getNom()
-                System.out.println("Vous recherchez le contact qui a pour nom: " + contacts.get(i).getNom());
-                contacts.get(i).afficherInformations();
+    public void searchContact(String nom) {
+        for (Contact contact : contacts) {
+            if (contact.getNom().equalsIgnoreCase(nom)) {
+                System.out.println("Vous recherchez le contact qui a pour nom: " + contact.getNom());
+                contact.afficherInformations();
+                return;
             }
         }
+        System.out.println("Contact non trouvé");
     }
-
 }
